@@ -42,7 +42,7 @@
 
             </nav>
         <!-- MAIN -->
-        <section class="flex justify-center lg:justify-between relative h-[100vh] items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+        <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
             <div class="mt-20 lg:max-w-[50%]">
                 <p class="font-montserrat tracking-[6px]">Smartathon'24</p>
                 <p class="text-5xl lg:text-6xl font-brunoace">Hackathon</p>
@@ -63,99 +63,61 @@
                 <img src="{% static 'images/jumbotron.svg' %}" class="max-w-[70%] lg:max-w-[100%]">
             </div>
             
-            <img src="{% static 'images/plus.svg' %}" class="absolute left-0 bottom-[-50px] w-[30%] -z-10  lg:w-[13.5%]">
+            <!-- <img src="{% static 'images/plus.svg' %}" class="absolute left-0 bottom-[-50px] w-[30%] -z-10  lg:w-[13.5%]"> -->
         </section>
 
         <!-- Process Flow -->
+
         <section class="w-full p-6 lg:p-12 relative">
-            <p class="font-montserrat font-bold text-4xl text-center">PROCESS FLOW</p>
-            
-            <div class="flex justify-center gap-4 lg:mt-12 mt-6 flex-wrap">
-                <div class="flex flex-col gap-6 max-w-[300px] justify-evenly items-center p-4 border-2 border-dashed border-gray-400 rounded-md">
-                    <div>
-                        <img src="{% static 'images/1p.svg' %}" alt="">
-                    </div>
-                    <div>
-                        <p class="font-montserrat text-xl text-center">
-                            Browse and choose a problem statement from the forum to begin your preparation.
-                        </p>
-                    </div>
-                    <button class="w-full bg-[#FFC657] hover:bg-[#e4b046] duration-300 transition-colors p-2 rounded-md font-montserrat font-medium text-center">
-                        <p class="opacity-85 text-center">View Problem Statements</p>
-                    </button>
-                </div>
-
-                <div class="flex flex-col gap-6 max-w-[300px] justify-evenly items-center p-4 border-2 border-dashed border-gray-400 rounded-md">
-                    <div>
-                        <img src="{% static 'images/2p.svg' %}" alt="">
-                    </div>
-                    <div>
-                        <p class="font-montserrat text-xl text-center">
-                            Register through the portal when the registration window opens for the preliminary round.
-                        </p>
-                    </div>
-                    <button class="w-full bg-[#FFC657]  cursor-default p-2 rounded-md font-montserrat font-medium text-center">
-                        <p class="opacity-85 text-center">Registration Open's Soon</p>
-                    </button>
-                </div>
-
-                <div class="flex flex-col gap-6 max-w-[300px] justify-evenly items-center p-4 border-2 border-dashed border-gray-400 rounded-md">
-                    <div>
-                        <img src="{% static 'images/3p.svg' %}" alt="">
-                    </div>
-                    <div>
-                        <p class="font-montserrat text-xl text-center">
-                            Top 30 teams enter the 7hr long endurance hackathon in developing the software
-                        </p>
-                    </div>
-                    <button class="w-full bg-[#FFC657] cursor-default p-2 rounded-md font-montserrat font-medium text-center">
-                        <p class="opacity-85 text-center">On 26th, Oct, 2024</p>
-                    </button>
-                </div>
-            </div>
+            <p class="font-montserrat font-bold text-4xl">PROCESS FLOW</p>
+            <img src="{% static 'images/processflow.svg' %}" class="min-w-full min-h-full">
         </section>
 
         <!-- Problem Statement -->
-        <section class="w-full h-screen p-6 lg:p-12 relative flex items-center flex-col">
-            <img src="{% static 'images/circularabstract.svg' %}" class="absolute top-0 right-0">
-            <p class="font-montserrat font-bold text-4xl text-center">PROBLEM STATEMENTS</p>
-            <input type="text" class="border outline-none rounded-3xl w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none" placeholder="Search with Problem ID">
-            <div class="w-full p-12 rounded-md z-10 shadow-sm bg-white mt-6 relative gap-4 flex flex-col">
+        <section class="w-full p-6 lg:p-12 flex flex-col justify-center items-center">
+            <p class="text-3xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
+
+            <input type="text" class="border outline-none rounded-3xl w-full lg:w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none psidsearch" placeholder="Search with Problem ID">
+            <div class="w-full prounded-md z-10 shadow-sm mt-6 relative gap-4 flex flex-col cardparent">
                 {% for statement in statements %}
-                    <div class="w-full p-6 rounded-md font-montserrat border shadow-sm hover:shadow-md cursor-pointer">
+                    <div class="w-full bg-[#F6F0E5] p-6 flex flex-col gap-1 rounded-md font-montserrat border shadow-sm hover:shadow-md cursor-pointer">
                         <div>
-                            <p class="font-medium underline text-sm">Problem Statement ID: {{statement.id}}</p>
+                            <p class="text-xs opacity-50">Problem Statement ID: {{statement.id}}</p>
                         </div>
                         <div class="mt-2">
-                            <p>Problem Title: {{statement.title}}</p>
+                            <p class="text-xl">{{statement.title}}</p>
                         </div>
-                        <div class="flex gap-2 mt-4 font-medium">
-                            <p class="text-gray-800">Difficulty Level: {{statement.difficulty}}</p>
+                        <div class="flex gap-2 font-medium">
+                            <p class="text-xs opacity-50">Difficulty Level: {{statement.difficulty}}</p>
                             <span>|</span>
-                            <p class="text-gray-800">Maximum registration: 20</p>
+                            <p class="text-xs opacity-50">Maximum {{statement.submissions}} submission</p>
                         </div>
                         <div>
-                            <p class="underline read-btn" data-psid="{{statement.id}}">Read More</p>
+                                <button class="border border-black py-1 px-4 rounded-md text-xs read-btn" data-psid="{{statement.id}}">
+                                    Read more
+                                </button>
                         </div>
                     </div>
                 {% endfor %}
             </div>
+    
+            <!-- Problem Statement Overlay -->
+             <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden">
+                <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative">
+                    <p class="font-bold psidtxt">Problem Statement ID: </p>
+                    <p class="mt-4 pstitle" id="lk"><br> </p>
+                    <p class="mt-4 psdesc"><b>Description:</b><br> </p>
+                    <p class="mt-12 psdf">Difficulty Level: </p>
+                    <p>Maximum registration: 100</p>
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-12 top-12 popupclose">
+                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-45"></div>
+                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-[-45deg]"></div>
+                    </div>
+                </div>
+             </section>
         </section>
 
-        <!-- Problem Statement Overlay -->
-         <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden">
-            <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative">
-                <p class="font-bold psidtxt">Problem Statement ID: </p>
-                <p class="mt-4 pstitle" id="lk"><br> </p>
-                <p class="mt-4 psdesc"><b>Description:</b><br> </p>
-                <p class="mt-12 psdf">Difficulty Level: </p>
-                <p>Maximum registration: 100</p>
-                <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-12 top-12 popupclose">
-                    <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-45"></div>
-                    <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-[-45deg]"></div>
-                </div>
-            </div>
-         </section>
+        
     <p class="statements hidden">{{rawps}}</p>
     <script src="{% static 'js/script.js' %}"></script>
 </body>

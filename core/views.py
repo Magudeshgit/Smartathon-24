@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from .models import statements
+from .models import statements, events
 import json
 from django.core import serializers
 
 def home(request):
-    return render(request, "core/index.html")
+    eventdata = events.objects.all()
+    return render(request, "core/index.html", {"events":eventdata})
 
 def hackathon(request):
     ps = statements.objects.all()

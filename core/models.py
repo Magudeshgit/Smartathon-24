@@ -14,7 +14,6 @@ class statements(models.Model):
     
     
     def save(self, *args, **kwargs):
-        print("ssfd", *args, **kwargs)
         return super().save(*args,**kwargs)
     
     class Meta:
@@ -23,3 +22,22 @@ class statements(models.Model):
         
     def __str__(self) -> str:
         return self.title
+    
+
+class events(models.Model):
+    name = models.CharField(max_length=75)
+    description = models.TextField()
+    time = models.CharField(max_length=20)
+    date = models.CharField(max_length=20)
+    venue = models.CharField(max_length=50)
+    
+    maxsub = models.IntegerField(default=200)
+    statustext = models.CharField(max_length=75)
+    isClosed = models.BooleanField(default=False)
+    
+    bgcolor = models.CharField(max_length=20)
+    redirectURI = models.CharField(max_length=20)
+    imageurl = models.CharField(max_length=25)
+    
+    def __str__(self):
+        return self.name

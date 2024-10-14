@@ -39,3 +39,30 @@
     backdrop-filter: blur(12px);
     display: flex;
 }
+.eventname
+{
+    position: relative;
+}
+.eventname::after
+{
+    content: ' ';
+    width: 228px;
+    height: 3.5px;
+    background: #FFD37D;
+    position: absolute;
+    top: -13px;
+    left: 0;
+    border-radius: 20px;
+}
+.ideapitching
+{
+    background: #77C6B3 
+}
+.projectpresentation
+{
+    background: #FFAFAF;
+}
+.hackathon
+{
+    background: #70A2E1;
+}
