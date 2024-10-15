@@ -11,8 +11,8 @@
 <body class="bg-[#FFFCEA] body">
     <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12">
         <div class="flex gap-2">
-            <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-24">
-            <p class="font-bold font-montserrat text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
+            <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-12 lg:w-10 lg:h-10">
+            <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
         </div>
         <div class="gap-12 items-center hidden md:flex">
             <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
@@ -28,7 +28,7 @@
             <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
         </div>
 
-        <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
+        <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300 z-[100]">
             <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
             <a href="/#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
             <a href="/#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
@@ -43,11 +43,11 @@
     </nav>
 <section class="w-full p-6 lg:p-12 flex flex-col justify-center items-center mt-[60px]">
     <div class="flex justify-between items-center w-full">
-        <p class="font-brunoace text-5xl text-left mr-auto mt-4 underline">Hackathon</p>
+        <p class="font-brunoace text-4xl text-left mr-auto mt-4 underline">Hackathon</p>
     </div>
         <div class="flex justify-between items-center w-full mt-4">
             <div class="">
-                <p class="text-3xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
+                <p class="text-2xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
             </div>
             <!-- <input type="text" class="border outline-none rounded-3xl w-full lg:w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none psidsearch" placeholder="Search with Problem ID"> -->
         </div>
@@ -75,14 +75,14 @@
             </div>
     
         
-             <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden overflow-hidden">
-                <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative">
+             <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden">
+                <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative overflow-y-scroll">
                     <p class="font-bold psidtxt">Problem Statement ID: </p>
                     <p class="mt-4 pstitle" id="lk"><br> </p>
                     <p class="mt-4 psdesc"><b>Description:</b><br> </p>
                     <p class="mt-12 psdf">Difficulty Level: </p>
                     <p>Maximum registration: 100</p>
-                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-12 top-12 popupclose w-6 h-6">
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-6 top-6 popupclose w-6 h-6">
                         <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-45"></div>
                         <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-[-45deg]"></div>
                     </div>
@@ -91,5 +91,16 @@
         </section>
     <p class="statements hidden">{{rawps}}</p>
     <script src="{% static 'js/script.js' %}"></script>
+    <script>    
+        const togglebtn = document.querySelector('.togglebtn')
+        const closebtn = document.querySelector('.closebtn')
+        const mobmenu = document.querySelector('.mobmenu')
+        togglebtn.addEventListener('click', ()=>{
+            mobmenu.classList.toggle('active')
+        })
+        closebtn.addEventListener('click', ()=>{
+            mobmenu.classList.toggle('active')
+        })
+</script>
 </body>
 </html>

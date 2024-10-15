@@ -20,7 +20,7 @@ const search = document.querySelector('.psidsearch')
 readbtns.forEach(btn=>btn.addEventListener('click', popupFunction))
 
 function popupFunction(e) {
-    body.classList.toggle('active')
+    // body.classList.toggle('active')
     let statement = statements.find(({pk})=>pk===parseInt(e.target.dataset.psid))
     console.log('sdfsdf', statement)
     popup.classList.toggle('active')
@@ -31,7 +31,7 @@ function popupFunction(e) {
     psdf.innerText ="Difficulty Level: " +statement.fields.difficulty
 }
 popupclose.addEventListener('click', ()=>{
-    body.classList.toggle('active')
+    // body.classList.toggle('active')
     popup.classList.toggle('active')
 })
 
