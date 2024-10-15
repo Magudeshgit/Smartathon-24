@@ -10,20 +10,25 @@
     {% tailwind_css %}
 </head> 
 <body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden">
-            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6  z-[100]">
                 <div class="flex gap-2">
-                    <img src="{% static 'images/SRC.png' %}" alt="logo" class="w-8 h-8">
-                    <p class="font-bold font-montserrat text-lg">Student Research Council</p>
+                    <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-8 h-8">
+                    <p class="font-bold font-montserrat text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
                 </div>
+                <!-- <div class="flex items-center gap-2">
+                    <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="">
+                    <p class="font-semibold font-montserrat text-lg">Student Research Council</p>
+                    
+                </div> -->
                 <div class="gap-12 items-center hidden md:flex">
-                    <a href="/home" class="font-montserrat text-gray-600 hover:text-black transition-all">Home</a>
-                    <a href="/Events" class="font-montserrat text-gray-600 hover:text-black transition-all">Events</a>
-                    <a href="/About" class="font-montserrat text-gray-600 hover:text-black transition-all">About</a>
+                    <a href="/" class="font-montserrat text-gray-700 hover:text-black transition-all">Home</a>
+                    <a href="#events" class="font-montserrat text-gray-700 hover:text-black transition-all">Events</a>
+                    <a href="#about" class="font-montserrat text-gray-700 hover:text-black transition-all">About</a>
                 </div>
 
 
                 <!-- Mobile Navigation -->
-                <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn">
+                <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn w-8 h-8">
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
@@ -31,10 +36,10 @@
 
                 <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
                     <a href="/home" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
-                    <a href="/Events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
-                    <a href="/About" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
+                    <a href="#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
+                    <a href="#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
                     
-                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn">
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn w-8 h-8">
                         <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-45"></div>
                         <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
                     </div>
@@ -49,14 +54,16 @@
                 <p class="font-montserrat mt-4 ">
                     Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
                 </p>
-                <button class="bg-[#FFC657] flex justify-center text-center gap-4 w-full lg:w-auto  py-3 px-8 rounded-md text-base font-montserrat mt-4 font-medium hover:bg-[#e4b046] transition-colors">
-                    <img src="{% static 'images/expcta.svg' %}" alt="">
-                    Explore Events
-                </button>
+                <a href="#events">
+                    <button class="bg-[#FFC657] flex justify-center text-center gap-4 w-full lg:w-auto  py-3 px-8 rounded-md text-base font-montserrat mt-4 font-medium hover:bg-[#e4b046] transition-colors">
+                        <img src="{% static 'images/expcta.svg' %}" alt="">
+                        Explore Events
+                    </button>
+                </a>
             </div>
 
             <div class="flex items-center max-w-[100%] justify-center">
-                <img src="{% static 'images/jumbotron.svg' %}" class="max-w-[70%] lg:max-w-[100%]">
+                <img src="{% static 'images/jumbotron.svg' %}" class="max-w-[70%] lg:max-w-[100%] lg:mt-32">
             </div>
             
             <!-- <img src="{% static 'images/plus.svg' %}" class="absolute left-0 bottom-[-50px] w-[30%] -z-10  lg:w-[13.5%]"> -->
@@ -65,24 +72,26 @@
 
         <!-- About Section -->
 
-        <section class="w-full p-6 lg:p-12 flex justify-between items-center flex-wrap-reverse lg:flex-nowrap gap-6">
+        <section id="about" class="w-full p-6 lg:p-12 flex justify-between items-center flex-wrap-reverse lg:flex-nowrap gap-6">
             <div class="w-[100%] lg:max-w-[50%]">
                 <img src="{% static 'images/aboutsec.png' %}" alt="aboutsection">
             </div>
             <div class="w-[100%] lg:max-w-[50%]">
-                <p class="font-brunoace text-3xl underline">Smartathon 2K24</p>
                 <p class="font-montserrat font-bold text-2xl mt-4">What is it About?</p>
                 <p class="font-montserrat opacity-75 text-sm">Fostering a dynamic community of student researchers committed to driving innovation and positive change through their collaborative, ethical, and impactful research endeavors is the cornerstone of our mission. With an unwavering dedication to excellence, we empower our students to explore the frontiers of knowledge, push boundaries, and create solutions that address the pressing challenges of our time. Together, we strive to cultivate an environment where curiosity thrives, diversity is celebrated, and ideas flourish, inspiring the next generation of leaders and change-makers to make a meaningful difference in the world.</p>
-                <button class="bg-[#FFC657] flex gap-4 w-full lg:w-auto justify-center  py-3 px-8 rounded-md text-base font-montserrat mt-6 font-medium hover:bg-[#e4b046] transition-color">
-                    <img src="{% static 'images/expcta.svg' %}" alt="">
-                    Explore Events
+
+                <a href="https://chat.whatsapp.com/CEOFPw1h0w5EK4ELWGbANd" target="_blank">
+                <button type="button" class="bg-[#FFC657] flex gap-2 w-full lg:w-auto justify-center items-center  py-3 px-8 rounded-md text-base font-montserrat mt-6 font-medium hover:bg-[#e4b046] transition-color duration-300">
+                    <img src="{% static 'images/whatsapp.svg' %}" alt="" class="w-4 h-4">
+                    Join our Whatsapp Community
                 </button>
+                </a>
             </div>
         </section>
 
         <!-- Events Section -->
 
-        <section class="w-full h-screen gap-6 ">
+        <section class="w-full gap-6" id="events">
             <p class="font-montserrat text-3xl font-bold text-center mb-6">Events</p>
             <div class="flex flex-col gap-2">
             {% for event in events %}
@@ -113,7 +122,7 @@
                         {% endif %}
 
                         {% if event.name == 'Hackathon' %}
-                        <a href="/downloadtemplate" class="w-full">
+                        <a href="/downloadhackathontemplate" class="w-full">
                         <button class="border border-[#3658D3] flex justify-center text-center gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-xs font-montserrat mt-4 font-medium hover:bg-[#3658D3] transition-colors">
                             <img src="{% static 'images/download.svg' %}" alt="">
                             Download template
@@ -122,12 +131,77 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class=" rounded-t-2xl rounded-b-2xl ">
-                    <img src="{% static event.imageurl %}" class="max-w-[60%]">
+                <div class="w-full lg:w-auto rounded-t-2xl rounded-b-2xl ">
+                    <img src="{% static event.imageurl %}" class="max-w-[60%] ml-auto mr-auto">
                 </div>
             </div>
             {% endfor %}    
         </div>
         </section>
+
+        <!-- Footer Section -->
+         <section class="w-full flex p-6 lg:p-12 flex-col font-montserrat">
+            <p class="text-3xl font-bold font-montserrat text-center">Event Coordinators</p>
+            <div class="w-full flex justify-evenly mt-6 flex-wrap gap-6">
+                <div class="flex flex-col justify-center items-center">
+                    <img src="{% static 'images/prajith.png' %}" alt="">
+                    <p class="font-montserrat font-medium">Prajith P</p>
+                    <p class="font-montserrat text-sm font-medium">ph: 9344542873</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <img src="{% static 'images/vaishali.png' %}" alt="">
+                    <p class="font-montserrat font-medium">Vaishali S</p>
+                    <p class="font-montserrat text-sm font-medium">ph: 8072172652</p>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <img src="{% static 'images/udhay.png' %}" alt="">
+                    <p class="font-montserrat font-medium">Uthaya Kumar V</p>
+                    <p class="font-montserrat text-sm font-medium">ph: 9043459691</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center mt-12">
+                <div class="flex items-center justify-center flex-col">
+                    <p class="">Organizing commitee</p>
+                    <img src="{% static 'images/srclogo.svg' %}" class="w-[200px] h-[200px] mt-6">
+                    <p class="font-semibold text-xl">Student Research Council</p>
+                    <p class="font-light tracking-widest">To Research, To Innovate</p>
+                </div>
+                <div class="flex gap-4 mt-6 flex-wrap lg:flex-nowrap justify-center">
+                    <a href="https://www.linkedin.com/in/student-research-council-drmcet-3a4b42323/" class="flex gap-2">
+                        <img src="{% static 'images/linkedin.svg' %}" class="w-[20px] opacity-60">
+                        LinkedIn
+                    </a>
+                    <a href="mail:srcofficials@drmcet.ac.in" class="flex">
+                        <img src="{% static 'images/mail.svg' %}" class="w-[20px]">
+                        srcofficials@drmcet.ac.in
+                    </a>
+                    <a href="https://www.instagram.com/src.offl?igsh=ZThwa3VrbHlxbWFl" class="flex" target="_blank">
+                        <img src="{% static 'images/instagram.svg' %}" class="w-[20px]">
+                        src.offl
+                    </a>
+                    <a href="" class="flex">
+                        <img src="{% static 'images/location.svg' %}" class="w-[20px]">
+                        116 A-Block, MCET
+                    </a>
+                    <a href="https://chat.whatsapp.com/CEOFPw1h0w5EK4ELWGbANd" class="flex gap-2">
+                        <img src="{% static 'images/whatsapp.svg' %}" class="w-[20px] opacity-60">
+                        Join our community
+                    </a>
+                </div>
+            </div>
+         </section>
+         
+
+        <script>    
+                const togglebtn = document.querySelector('.togglebtn')
+                const closebtn = document.querySelector('.closebtn')
+                const mobmenu = document.querySelector('.mobmenu')
+                togglebtn.addEventListener('click', ()=>{
+                    mobmenu.classList.toggle('active')
+                })
+                closebtn.addEventListener('click', ()=>{
+                    mobmenu.classList.toggle('active')
+                })
+        </script>
 </body>
 </html>

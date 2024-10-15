@@ -29,7 +29,10 @@
     font-weight: normal;
     src: url(../fonts/BrunoAce-Regular.ttf);
 }
-
+html
+{
+    scroll-behavior: smooth;
+}
 .mobmenu.active
 {
     top: 0;
@@ -65,4 +68,14 @@
 .hackathon
 {
     background: #70A2E1;
+}
+.psidtxt
+{
+    font-size: 21px !important;
+}
+.body.active
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }

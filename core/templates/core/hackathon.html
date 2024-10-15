@@ -9,31 +9,35 @@
     {% tailwind_css %}
 </head>
 <body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden">
-            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
                 <div class="flex gap-2">
+                    <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-24">
+                    <p class="font-bold font-montserrat text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
+                </div>
+                <!-- <div class="flex gap-2">
                     <img src="{% static 'images/SRC.png' %}" alt="logo" class="w-8 h-8">
                     <p class="font-bold font-montserrat text-lg">Student Research Council</p>
-                </div>
+                </div> -->
                 <div class="gap-12 items-center hidden md:flex">
-                    <a href="/home" class="font-montserrat text-gray-600 hover:text-black transition-all">Home</a>
-                    <a href="/Events" class="font-montserrat text-gray-600 hover:text-black transition-all">Events</a>
-                    <a href="/About" class="font-montserrat text-gray-600 hover:text-black transition-all">About</a>
+                    <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
+                    <a href="/#events" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Events</a>
+                    <a href="/#about" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">About</a>
                 </div>
 
 
                 <!-- Mobile Navigation -->
-                <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn">
+                <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn w-4 h-4">
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
                     <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
                 </div>
 
                 <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
-                    <a href="/home" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
-                    <a href="/Events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
-                    <a href="/About" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
+                    <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
+                    <a href="/#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
+                    <a href="/#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
                     
-                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn">
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn w-4 h-4">
                         <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-45"></div>
                         <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
                     </div>
@@ -43,6 +47,8 @@
             </nav>
         <!-- MAIN -->
         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+
+
             <div class="mt-20 lg:max-w-[50%]">
                 <p class="font-montserrat tracking-[6px]">Smartathon'24</p>
                 <p class="text-5xl lg:text-6xl font-brunoace">Hackathon</p>
@@ -51,72 +57,115 @@
                 <p class="font-montserrat mt-4 ">
                     Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
                 </p>
-                <button class="bg-[#FFC657] w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#e4b046] transition-colors">
+                <a href="/problemstatements">
+                <button class="bg-[#70A2E1] hover:bg-[#70A2E1] w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium transition-colors">
                     View Problem Statements
                 </button>
-                <button class="border w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#e4b046] transition-colors">
-                    Download template
-                </button>
+                </a>
+                <a href="/downloadhackathontemplate">
+                    <button class="border w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#70A2E1] transition-colors">
+                        Download template
+                    </button>
+                </a>
+                <div class="flex gap-2 mt-4 text-center lg:text-left w-full">
+                <img src="{% static 'images/calendar.svg' %}" alt="" class="mt-4">
+                <p class="font-montserrat mt-4">Registration open's on 22nd, October 2024</p>
+                </div>
             </div>
 
-            <div class="flex items-center max-w-[100%] justify-center">
-                <img src="{% static 'images/jumbotron.svg' %}" class="max-w-[70%] lg:max-w-[100%]">
+            <div class="flex items-center max-w-[100%] justify-center lg:mt-32">
+                <img src="{% static 'images/hackathonhack.svg' %}" class="max-w-[70%] lg:max-w-[100%]">
             </div>
             
-            <!-- <img src="{% static 'images/plus.svg' %}" class="absolute left-0 bottom-[-50px] w-[30%] -z-10  lg:w-[13.5%]"> -->
+            <!-- <img src="{% static 'images/hackjb.svg' %}" class="absolute right-0 top-0 -z-10 max-w-[70%] lg:max-w-[100%] lg:block hidden "> -->
         </section>
+
+        <!-- About -->
+         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+            <div class="flex flex-col gap-6">
+                
+                <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
+                    <div class="lg:w-[50%]">
+                        <img src="{% static 'images/hab.svg' %}" alt="" class="min-w-[200px]">
+                    </div>
+                    <div class="flex flex-col gap-2 p-6">
+                        <p class="text-2xl font-bold font-montserrat">Unleash Your Innovation: 7-Hour Hackathon Challenge!</p>
+                        <p class="font-montserrat text-gray-600">
+                            Welcome to our thrilling 2-round Hackathon, where innovation meets endurance! The event kicks off with a preliminary
+                            round and culminates in a 7-hour endurance Hackathon. Check out the released problem statements, and start preparing your solution with the help of the ppt template. In the preliminary round, teams will present their
+                            chosen problem statement solutions through a detailed PPT utilizing the providing ppt template. The top teams will then be shortlisted to advance to the main
+                            event—an intense 7-hour hackathon where they will develop their solutions live. Winners will be awarded exciting cash
+                            prizes for their outstanding efforts!
+                        </p>
+                        <a href="/problemstatements">
+                            <button class="bg-[#70A2E1] hover:bg-[#70A2E1] w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium transition-colors">
+                                View Problem Statements
+                            </button>
+                        </a>
+                    </div>
+                </div>  
+
+                <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
+                    <div class="lg:w-[50%]">
+                        <img src="{% static 'images/gis.svg' %}" alt="" class="min-w-[200px]">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <p class="text-2xl font-bold font-montserrat">General Instruction</p>
+                        <p class="font-montserrat text-gray-600">
+                           <ul class="font-montserrat">
+                            <li class="list-disc ">Participants shall choose one of the released <a href="/problemstatements" class="underline">problem statements</a> and start preparing</li>
+                            <li class="list-disc mt-4">Participants can form teams consisting of 4 members, Each team must be registered throught the portal before registration closes.</li>
+                            <li class="list-disc mt-4">Preliminary round: Teams must submit and present their solutions via the provided template only. Any layout modification to template is strictly prohibited.</li>
+                            <li class="list-disc mt-4">Preliminary round: Presentations will be evaluated based on creativity, technical feasibility, and the overall approach.</li>
+                            <li class="list-disc mt-4">The top 30 teams will be shortlisted for the 7 - hour endurance hackathon (finals).</li>
+                            <li class="list-disc mt-4">During the endurance round, participants must utilize only college lab systems; personal laptops are prohibited.</li>
+                            <li class="list-disc mt-4">Teams will be evaluated based on the originality of their work, as well as feasibility and scalability factors.</li>
+                           </ul>
+                        </p>
+                    </div>
+                </div>  
+            </div>
+         </section>
 
         <!-- Process Flow -->
 
-        <section class="w-full p-6 lg:p-12 relative">
+        <section class="w-full pl-6 lg:pl-12 relative">
             <p class="font-montserrat font-bold text-4xl">PROCESS FLOW</p>
             <img src="{% static 'images/processflow.svg' %}" class="min-w-full min-h-full">
         </section>
-
-        <!-- Problem Statement -->
-        <section class="w-full p-6 lg:p-12 flex flex-col justify-center items-center">
-            <p class="text-3xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
-
-            <input type="text" class="border outline-none rounded-3xl w-full lg:w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none psidsearch" placeholder="Search with Problem ID">
-            <div class="w-full prounded-md z-10 shadow-sm mt-6 relative gap-4 flex flex-col cardparent">
-                {% for statement in statements %}
-                    <div class="w-full bg-[#F6F0E5] p-6 flex flex-col gap-1 rounded-md font-montserrat border shadow-sm hover:shadow-md cursor-pointer">
-                        <div>
-                            <p class="text-xs opacity-50">Problem Statement ID: {{statement.id}}</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-xl">{{statement.title}}</p>
-                        </div>
-                        <div class="flex gap-2 font-medium">
-                            <p class="text-xs opacity-50">Difficulty Level: {{statement.difficulty}}</p>
-                            <span>|</span>
-                            <p class="text-xs opacity-50">Maximum {{statement.submissions}} submission</p>
-                        </div>
-                        <div>
-                                <button class="border border-black py-1 px-4 rounded-md text-xs read-btn" data-psid="{{statement.id}}">
-                                    Read more
-                                </button>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-    
-            <!-- Problem Statement Overlay -->
-             <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden">
-                <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative">
-                    <p class="font-bold psidtxt">Problem Statement ID: </p>
-                    <p class="mt-4 pstitle" id="lk"><br> </p>
-                    <p class="mt-4 psdesc"><b>Description:</b><br> </p>
-                    <p class="mt-12 psdf">Difficulty Level: </p>
-                    <p>Maximum registration: 100</p>
-                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-12 top-12 popupclose">
-                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-45"></div>
-                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-[-45deg]"></div>
-                    </div>
+        <!-- Footer -->
+        <section class="w-full bg-[#FDF9DF] p-6 lg:p-12">
+            <div class="flex flex-col justify-center items-center mt-12">
+                <div class="flex items-center justify-center flex-col">
+                    <p class="">Organizing commitee</p>
+                    <img src="{% static 'images/srclogo.svg' %}" class="w-[200px] h-[200px] mt-6">
+                    <p class="font-semibold text-xl">Student Research Council</p>
+                    <p class="font-light tracking-widest">To Research, To Innovate</p>
                 </div>
-             </section>
+                <div class="flex gap-4 mt-6 flex-wrap lg:flex-nowrap justify-center">
+                    <a href="https://www.linkedin.com/in/student-research-council-drmcet-3a4b42323/" class="flex gap-2">
+                        <img src="{% static 'images/linkedin.svg' %}" class="w-[20px] opacity-60">
+                        LinkedIn
+                    </a>
+                    <a href="mail:srcofficials@drmcet.ac.in" class="flex">
+                        <img src="{% static 'images/mail.svg' %}" class="w-[20px]">
+                        srcofficials@drmcet.ac.in
+                    </a>
+                    <a href="https://www.instagram.com/src.offl?igsh=ZThwa3VrbHlxbWFl" class="flex" target="_blank">
+                        <img src="{% static 'images/instagram.svg' %}" class="w-[20px]">
+                        src.offl
+                    </a>
+                    <a href="" class="flex">
+                        <img src="{% static 'images/location.svg' %}" class="w-[20px]">
+                        116 A-Block, MCET
+                    </a>
+                    <a href="https://chat.whatsapp.com/CEOFPw1h0w5EK4ELWGbANd" class="flex gap-2">
+                        <img src="{% static 'images/whatsapp.svg' %}" class="w-[20px] opacity-60">
+                        Join our community
+                    </a>
+                </div>
+            </div>
         </section>
-
         
     <p class="statements hidden">{{rawps}}</p>
     <script src="{% static 'js/script.js' %}"></script>

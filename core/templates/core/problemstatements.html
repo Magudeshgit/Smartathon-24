@@ -1,0 +1,95 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartathon'24 | Problem Statements</title>
+    <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-[#FFFCEA] body">
+    <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12">
+        <div class="flex gap-2">
+            <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-24">
+            <p class="font-bold font-montserrat text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
+        </div>
+        <div class="gap-12 items-center hidden md:flex">
+            <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
+            <a href="/#events" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Events</a>
+            <a href="/#about" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">About</a>
+        </div>
+
+
+        <!-- Mobile Navigation -->
+        <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn w-4 h-4">
+            <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+            <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+            <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+        </div>
+
+        <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
+            <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
+            <a href="/#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
+            <a href="/#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
+            
+            <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn w-4 h-4">
+                <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-45"></div>
+                <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
+            </div>
+        </div>
+
+
+    </nav>
+<section class="w-full p-6 lg:p-12 flex flex-col justify-center items-center mt-[60px]">
+    <div class="flex justify-between items-center w-full">
+        <p class="font-brunoace text-5xl text-left mr-auto mt-4 underline">Hackathon</p>
+    </div>
+        <div class="flex justify-between items-center w-full mt-4">
+            <div class="">
+                <p class="text-3xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
+            </div>
+            <!-- <input type="text" class="border outline-none rounded-3xl w-full lg:w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none psidsearch" placeholder="Search with Problem ID"> -->
+        </div>
+            <div class="w-full prounded-md z-10 shadow-sm mt-6 relative gap-4 flex flex-col cardparent">
+                {% for statement in statements %}
+                    <div class="w-full bg-[#F6F0E5] p-6 flex flex-col gap-1 rounded-md font-montserrat border shadow-sm cursor-pointer">
+                        <div>
+                            <p class="text-xs opacity-65">Problem Statement ID: {{statement.id}}</p>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-xl">{{statement.title}}</p>
+                        </div>
+                        <div class="flex gap-2 font-medium items-center">
+                            <p class="text-xs opacity-65">Difficulty Level: {{statement.difficulty}}</p>
+                            <span class="opacity-65">|</span>
+                            <p class="text-xs opacity-65">Maximum {{statement.submissions}} submission</p>
+                        </div>
+                        <div>
+                                <button class="border border-black py-2 px-6 rounded-md text-sm read-btn hover:bg-black hover:text-white transition-colors" data-psid="{{statement.id}}">
+                                    Read more
+                                </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    
+        
+             <section class="fixed left-0 top-0 backdrop-blur-md w-screen h-screen p-6 lg:p-12 z-50 popup hidden overflow-hidden">
+                <div class="bg-white h-full w-full rounded-md shadow-md p-12 font-montserrat relative">
+                    <p class="font-bold psidtxt">Problem Statement ID: </p>
+                    <p class="mt-4 pstitle" id="lk"><br> </p>
+                    <p class="mt-4 psdesc"><b>Description:</b><br> </p>
+                    <p class="mt-12 psdf">Difficulty Level: </p>
+                    <p>Maximum registration: 100</p>
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer absolute right-12 top-12 popupclose w-6 h-6">
+                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-45"></div>
+                        <div class="w-4 h-[2px] bg-gray-900 rounded-md absolute rotate-[-45deg]"></div>
+                    </div>
+                </div>
+             </section>
+        </section>
+    <p class="statements hidden">{{rawps}}</p>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

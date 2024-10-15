@@ -23,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('', cv.home),
-    path('hackathon/', cv.hackathon)
+    path('hackathon/', cv.hackathon),
+    path('problemstatements/', cv.problemstatements),
+    path('downloadhackathontemplate/', cv.download_hackathon)
 ]
