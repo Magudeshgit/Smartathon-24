@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
     {% tailwind_css %}
 </head>
-<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden">
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
             <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
                 <div class="flex gap-2">
                     <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-12 lg:w-10 lg:h-10">
@@ -57,16 +57,20 @@
                 <p class="font-montserrat mt-4 ">
                     Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
                 </p>
-                <a href="/problemstatements">
-                    <button class="bg-[#70A2E1] hover:bg-[#70A2E1] w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium transition-colors">
+                <div class="flex w-full flex-wrap gap-3 mt-3">
+                <a href="/problemstatements" class="w-full">
+                    <button class="bg-[#70A2E1] hover:bg-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">
+                        <img src="{% static 'images/view.svg' %}" class="invert">
                         View Problem Statements
                     </button>
                 </a>
-                <a href="/downloadhackathontemplate">
-                    <button class="border w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#70A2E1] transition-colors">
+                <a href="/downloadhackathontemplate" class="w-full">
+                    <button class="border-[1.5px] border-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#70A2E1] transition-colors flex gap-2 justify-center items-center">
+                        <img src="{% static 'images/download.svg' %}" class="invert">
                         Download template
                     </button>
                 </a>
+                </div>
                 <div class="flex gap-2 mt-4 text-center lg:text-left w-full">
                 <img src="{% static 'images/calendar.svg' %}" alt="" class="mt-4">
                 <p class="font-montserrat mt-4">Registration open's on 22nd, October 2024</p>
@@ -97,11 +101,19 @@
                             event—an intense 7-hour hackathon where they will develop their solutions live. Winners will be awarded exciting cash
                             prizes for their outstanding efforts!
                         </p>
-                        <a href="/problemstatements">
-                            <button class="bg-[#70A2E1] hover:bg-[#70A2E1] w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium transition-colors">
-                                View Problem Statements
-                            </button>
-                        </a>
+                        <div class="flex items-center gap-2">
+                            <a href="/problemstatements" class="w-full">
+                                <button class="bg-[#70A2E1] hover:bg-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors">
+                                    View Problem Statements
+                                </button>
+                            </a>
+                            <a href="/downloadhackathontemplate" class="w-full">
+                                <button class="border-[1.5px] border-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#70A2E1] transition-colors">
+                                    Download template
+                                </button>
+                            </a>
+                        </div>
+                        
                     </div>
                 </div>  
 
@@ -132,10 +144,9 @@
                     <div class="flex flex-col gap-2">
                         <p class="text-2xl font-bold font-montserrat">Winning Exciting Cash Prizes</p>
                         <p class="font-montserrat text-gray-600">
-                           1st Prize - 6000 Rupees<br>
-                           2nd Prize - 5000 Rupees<br>
-                           3rd Prize - 4000 Rupees
+                            Compete in our thrilling hackathon and stand a chance to win exciting cash prizes! Show off your coding skills, solve real-world problems, and take home rewards that recognize your hard work and creativity. Don’t miss the opportunity to prove your talent and claim your prize!
                         </p>
+                        <p class="font-montserrat font-semibold">1st Prize - ₹6000 | 2nd Prize - ₹5000 | 3rd Prize - ₹4000</p>
                     </div>
                 </div>  
             </div>

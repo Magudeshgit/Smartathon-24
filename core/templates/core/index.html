@@ -105,22 +105,24 @@
                     <p class="font-light font-montserrat">Venue: {{event.venue}}</p>
                     <p class="font-light font-montserrat">Max Submissions: {{event.maxsub}}</p>
 
-                    <div class="flex gap-2 flex-wrap lg:flex-nowrap">
+                    <div class="flex gap-2 gap-y-4 flex-wrap lg:flex-nowrap mt-2">
                         {% if event.name == 'Hackathon' %}
-                        <a href="/hackathon" class="lg:w-auto w-full">
-                        <button class="flex justify-center text-center bg-[#3658D3] gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#3658D3] transition-colors">
+                        <a href="/hackathon" class="w-full">
+                        <button class="flex justify-center text-center bg-[#3658D3] gap-2 py-3 px-8 min-w-full rounded-md text-sm font-montserrat font-medium hover:bg-[#3658D3] transition-colors">
                             <img src="{% static 'images/view.svg' %}" alt="">
-                            Learn More
+                            View problem statements
                         </button>
                         </a>
                         {% endif %}
                         {% if event.isClosed %}
-                        <button class="cursor-not-allowed bg-[#3658D3] flex justify-center text-center gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#2c48ae] transition-colors">
+                        <a class="w-full">
+                        <button class="cursor-not-allowed bg-[#3658D3] flex justify-center text-center min-w-full gap-2 py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#2c48ae] transition-colors">
                             {{event.statustext}}
                         </button>
+                        </a>
                         {% else %}
                         <a href="{{event.redirectURI}}" class="w-full">
-                        <button class="cursor-pointer bg-[#3658D3] flex justify-center text-center gap-2 w-full py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#2c48ae] transition-colors">
+                        <button class="cursor-pointer bg-[#3658D3] flex justify-center text-center gap-2 min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#2c48ae] transition-colors">
                             <img src="{% static 'images/view.svg' %}" alt="">
                         {{event.statustext}}
                         </button>
