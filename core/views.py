@@ -21,7 +21,7 @@ def problemstatements(request):
     return render(request, "core/problemstatements.html", {"statements": ps, "rawps":raw_ps})
 
 def download_hackathon(request):
-    file = open(str(BASE_DIR)+'\core\downloads\HACKATHON TEMPLATE [SRC].pptx', 'rb')
+    file = open(str(BASE_DIR)+'/core/downloads/HACKATHON TEMPLATE [SRC].pptx', 'rb')
     response = HttpResponse(file, content_type='application/vnd.openxmlformats-officedocument.presentationml.presentation')
     response['Content-Disposition'] = f"attachment; filename=HACKATHON TEMPLATE [SRC].pptx"
     return response 
