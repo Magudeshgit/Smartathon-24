@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
-                    <a href="/home" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
+                    <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
                     <a href="#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
                     <a href="#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
                     
@@ -99,7 +99,6 @@
                 <div class="lg:max-w-[50%]">
                     <p class="text-5xl font-bold font-montserrat eventname">{{event.name}}</p>
                     <p class="text-sm opacity-80 mt-4 font-montserrat">{{event.description}}</p>
-                    
                     <p class="font-semibold font-montserrat mt-4">Event Details</p>
                     <p class="font-light font-montserrat">Time: {{event.time}}</p>
                     <p class="font-light font-montserrat">Date: {{event.date}}</p>
@@ -107,25 +106,23 @@
                     <p class="font-light font-montserrat">Max Submissions: {{event.maxsub}}</p>
 
                     <div class="flex gap-2 flex-wrap lg:flex-nowrap">
+                        {% if event.name == 'Hackathon' %}
+                        <a href="/problemstatements" class="lg:w-auto w-full">
+                        <button class="flex justify-center text-center bg-[#3658D3] gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#3658D3] transition-colors">
+                            <img src="{% static 'images/view.svg' %}" alt="">
+                            View Problem Statements
+                        </button>
+                        </a>
+                        {% endif %}
                         {% if event.isClosed %}
                         <button class="cursor-not-allowed bg-[#3658D3] flex justify-center text-center gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#2c48ae] transition-colors">
-                            <img src="{% static 'images/view.svg' %}" alt="">
                             {{event.statustext}}
                         </button>
                         {% else %}
                         <a href="{{event.redirectURI}}" class="w-full">
                         <button class="cursor-pointer bg-[#3658D3] flex justify-center text-center gap-2 w-full py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#2c48ae] transition-colors">
                             <img src="{% static 'images/view.svg' %}" alt="">
-                            {{event.statustext}}
-                        </button>
-                        </a>
-                        {% endif %}
-
-                        {% if event.name == 'Hackathon' %}
-                        <a href="/downloadhackathontemplate" class="w-full">
-                        <button class="border border-[#3658D3] flex justify-center text-center gap-2 w-full lg:w-auto  py-3 px-8 rounded-md text-xs font-montserrat mt-4 font-medium hover:bg-[#3658D3] transition-colors">
-                            <img src="{% static 'images/download.svg' %}" alt="">
-                            Download template
+                        {{event.statustext}}
                         </button>
                         </a>
                         {% endif %}
