@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
     {% tailwind_css %}
 </head>
-<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto p-6 relative">
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto p-6 relative flex justify-center items-center flex-col">
         <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
             <div class="flex gap-2">
                 <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-12 lg:w-10 lg:h-10">
@@ -45,7 +45,7 @@
 
 
         </nav>
-        <div class="ml-auto mr-auto w-[400px] mt-[150px] border border-gray-300 shadow-sm p-6 rounded-lg relative">
+        <div class=" mt-[150px] border border-gray-300 shadow-sm p-6 rounded-lg relative">
             <div class="flex justify-center flex-col items-center">
                 <img src="{% static 'images/done.svg' %}" class="w-[250px]">
                 <p class="text-2xl font-bold font-montserrat">Success</p>
