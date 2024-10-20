@@ -1,0 +1,70 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Smartatdon'24 | Idea Pitching</title>
+    <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
+        <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
+            <div class="flex gap-2">
+                <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-12 lg:w-10 lg:h-10">
+                <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
+            </div>
+            <!-- <div class="flex gap-2">
+                <img src="{% static 'images/SRC.png' %}" alt="logo" class="w-8 h-8">
+                <p class="font-bold font-montserrat text-lg">Student Research Council</p>
+            </div> -->
+            <div class="gap-12 items-center hidden md:flex">
+                <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
+                <a href="/#events" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Events</a>
+                <a href="/#about" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">About</a>
+            </div>
+
+
+            <!-- Mobile Navigation -->
+            <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn w-4 h-4">
+                <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+                <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+                <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+            </div>
+
+            <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
+                <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
+                <a href="/#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
+                <a href="/#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
+                
+                <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn w-4 h-4">
+                    <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-45"></div>
+                    <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
+                </div>
+            </div>
+
+
+        </nav>
+        <div class="ml-auto mr-auto w-[400px] mt-[150px] border border-gray-300 shadow-sm p-6 rounded-lg">
+            <div class="flex justify-center flex-col items-center">
+                <img src="{% static 'images/closed.svg' %}" class="w-[250px]">
+                <p class="text-2xl font-bold font-montserrat">Registration Closed</p>
+                <p class="font-montserrat font-light text-sm text-center text-black">Registration for this event has been closed, although you can checkout other events.</p>
+
+            </div>
+        </div>
+
+        
+        <script>    
+            const togglebtn = document.querySelector('.togglebtn')
+            const closebtn = document.querySelector('.closebtn')
+            const mobmenu = document.querySelector('.mobmenu')
+            togglebtn.addEventListener('click', ()=>{
+                mobmenu.classList.toggle('active')
+            })
+            closebtn.addEventListener('click', ()=>{
+                mobmenu.classList.toggle('active')
+            })
+    </script>
+</body>
+</html>

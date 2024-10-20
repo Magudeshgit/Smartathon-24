@@ -29,6 +29,15 @@
     font-weight: normal;
     src: url(../fonts/BrunoAce-Regular.ttf);
 }
+.gis::-webkit-scrollbar
+{
+    width: 10px;
+}
+.gis::-webkit-scrollbar-thumb
+{
+    background: #ddd9c3;
+    border-radius: 20px;
+}
 html
 {
     scroll-behavior: smooth;
@@ -63,7 +72,7 @@ html
 }
 .projectpresentation
 {
-    background: #FFAFAF;
+    background: #F99090;
 }
 .hackathon
 {

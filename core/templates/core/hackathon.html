@@ -10,14 +10,10 @@
 </head>
 <body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
             <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
-                <div class="flex gap-2">
-                    <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="w-12 lg:w-10 lg:h-10">
+                <a class="flex gap-2" href="/">
+                    <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="max-w-[100px]">
                     <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
-                </div>
-                <!-- <div class="flex gap-2">
-                    <img src="{% static 'images/SRC.png' %}" alt="logo" class="w-8 h-8">
-                    <p class="font-bold font-montserrat text-lg">Student Research Council</p>
-                </div> -->
+                </a>
                 <div class="gap-12 items-center hidden md:flex">
                     <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
                     <a href="/#events" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Events</a>
@@ -84,14 +80,106 @@
             <!-- <img src="{% static 'images/hackjb.svg' %}" class="absolute right-0 top-0 -z-10 max-w-[70%] lg:max-w-[100%] lg:block hidden "> -->
         </section>
 
+        <section class="w-full p-6 lg:p-12 flex flex-col"  id="register">
+            <p class="text-3xl underline font-bold font-montserrat">Register</p>
+            {% for message in messages %}
+            <p class="font-xl text-red-600 font-montserrat font-medium">{{message}}</p>
+            {% endfor %}
+            <div class="flex gap-4 mt-4 flex-wrap lg:flex-nowrap">
+                <form class="lg:w-[50%] border border-black rounded-md p-6 max-h-[450px] overflow-scroll gis flex flex-col gap-3" method="POST">
+                    {% csrf_token %}
+                    <div>
+                    <label for="teamname" class="font-montserrat text-sm">Select Problem Statement*</label>
+                    <input type="text" list="statementlist" name="ps" class="outline-none w-full bg-transparent border border-black rounded-md font-montserrat ps" required placeholder="Enter Problem Statement ID" id="teamname"/>
+                    <datalist id="statementlist" class="bg-[#fff9d6] text-gray-900 font-montserrat text-sm shadow-sm rounded-lg flex flex-col"> 
+                    </datalist>
+                    </div>
+
+                    <div>
+                    <label for="teamname" class="font-montserrat text-sm">Team Name*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="teamname" name="teamname">
+                    </div>
+
+                    <div>
+                    <label for="m1n" class="font-montserrat text-sm mt-4">Member 1 Name*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m1n" name="m1n">
+                    </div>                            
+
+                    <div>
+                    <label for="mlr" class="font-montserrat text-sm mt-4">Member 1 Roll No*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m1r" name="m1r">
+                    </div>
+
+                    <div>
+                    <label for="m2n" class="font-montserrat text-sm mt-4">Member 2 Name*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2n" name="m2n">
+                    </div>
+
+                    <div>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 2 Roll No*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2r" name="m2r">
+                    </div>
+
+                    <div>
+                    <label for="m2n" class="font-montserrat text-sm mt-4">Member 3 Name*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m3n" name="m3n">
+                    </div>
+
+                    <div>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll No*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m3r" name="m3r">
+                    </div>
+
+                    <div>
+                    <label for="m2n" class="font-montserrat text-sm mt-4">Member 4 Name*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m4n" name="m4n">
+                    </div>
+
+                    <div>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 4 Roll No*</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m4r" name="m4r">
+                    </div>
+
+                    <div>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Contact No</label>
+                    <input type="number" class="outline-none w-full bg-transparent border border-black rounded-md" id="m2r" required name="contact" >
+                    </div>
+
+                    <button type="submit" class="bg-[#70A2E1] hover:bg-[#4a6f9d] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center mt-4">
+                        Submit
+                        <img src="{% static 'images/rightarrow.svg' %}" >
+                    </button>
+                </form>
+                <div class="lg:w-[50%] border border-black rounded-md px-9 py-6 overflow-y-scroll
+                
+                
+                max-h-[450px] gis">
+                    <p class="text-xl font-montserrat font-bold">General Instructions</p>
+
+                    <ul class="font-montserrat text-gray-700 mt-2">
+                        <li class="list-disc mt-4">Event is planned in distinctive manner for both hardware and software with seprate time slots</li>
+                        <li class="list-disc mt-4">Two different Prize categories for hardware and software, with a total prize pool worth<b> ₹15,000</b></li>
+                        <li class="list-disc mt-4">Ideas should be submitted using the provided template, available on our website.</li>
+                        <li class="list-disc mt-4">Submissions are limited to a maximum of 200 entries.</li>
+                        <li class="list-disc mt-4">Preliminary round: Presentations will be evaluated based on creativity, technical feasibility, and the overall approach.</li>
+                        <li class="list-disc mt-4">The top 30 teams will be shortlisted for the 7 - hour endurance hackathon (finals).</li>
+                        <li class="list-disc mt-4">During the endurance round, participants must utilize only college lab systems; personal laptops are prohibited.</li>
+                        <li class="list-disc mt-4">Teams will be evaluated based on the originality of their work, as well as feasibility and scalability factors.</li>
+                       </ul>
+                </div>
+            </div>
+         </section>
+
         <!-- About -->
          <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
             <div class="flex flex-col gap-6">
                 
                 <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
+
                     <div class="lg:w-[50%]">
                         <img src="{% static 'images/hab.svg' %}" alt="" class="min-w-[200px]">
                     </div>
+
                     <div class="flex flex-col gap-2">
                         <p class="text-2xl font-bold font-montserrat">Unleash Your Innovation: 7-Hour Hackathon Challenge!</p>
                         <p class="font-montserrat text-gray-600">
@@ -101,7 +189,8 @@
                             event—an intense 7-hour hackathon where they will develop their solutions live. Winners will be awarded exciting cash
                             prizes for their outstanding efforts!
                         </p>
-                        <div class="flex items-center gap-2">
+
+                        <div class="flex items-center gap-2 flex-wrap lg:flex-nowrap">
                             <a href="/problemstatements" class="w-full">
                                 <button class="bg-[#70A2E1] hover:bg-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors">
                                     View Problem Statements
@@ -191,16 +280,45 @@
                 </div>
             </div>
         </section>
-        
+        <p class="statements hidden">{{rawps}}</p>
         <script>    
             const togglebtn = document.querySelector('.togglebtn')
             const closebtn = document.querySelector('.closebtn')
             const mobmenu = document.querySelector('.mobmenu')
+
+            const statementlist = document.querySelector('#statementlist')
+
+            const rawps = document.querySelector('.statements')
+            const ps = document.querySelector('.ps')
+
+            statements = JSON.parse(rawps.innerText)
+
             togglebtn.addEventListener('click', ()=>{
                 mobmenu.classList.toggle('active')
             })
             closebtn.addEventListener('click', ()=>{
                 mobmenu.classList.toggle('active')
+            })
+
+            ps.addEventListener('input', (e)=>{
+                if (e.target.value)
+                {
+                    statementlist.innerHTML = ''
+                }   
+                let statement = statements.find(({pk})=>pk===parseInt(e.target.value))
+                console.log(statement)
+                let option = document.createElement("option")
+                let hr = document.createElement("hr")
+
+                option.className = 'p-4 font-medium text-wrap'
+                option.innerText = `${statement.pk} - ${statement.fields.title}`
+                statementlist.append(option)
+                statementlist.append(hr)
+                option.addEventListener('click', ()=>{
+                    ps.value = statement.fields.title
+                    statementlist.innerHTML = ''
+                })
+
             })
     </script>
 </body>

@@ -1,0 +1,241 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartathon'24 | Project Presentation</title>
+    <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
+                <a class="flex gap-2" href="/">
+                    <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="max-w-[100px]">
+                    <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
+                </a>
+                <!-- <div class="flex gap-2">
+                    <img src="{% static 'images/SRC.png' %}" alt="logo" class="w-8 h-8">
+                    <p class="font-bold font-montserrat text-lg">Student Research Council</p>
+                </div> -->
+                <div class="gap-12 items-center hidden md:flex">
+                    <a href="/" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Home</a>
+                    <a href="/#events" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">Events</a>
+                    <a href="/#about" class="font-montserrat text-gray-600 font-medium hover:text-black transition-all hover:underline">About</a>
+                </div>
+
+
+                <!-- Mobile Navigation -->
+                <div class="flex flex-col gap-1 cursor-pointer md:hidden togglebtn w-4 h-4">
+                    <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+                    <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+                    <div class="w-8 h-[2px]  bg-gray-500 rounded-md"></div>
+                </div>
+
+                <div class="absolute top-[-360px] left-0 w-full backdrop-blur-md bg-white h-[350px] p-12 flex flex-col justify-evenly mobmenu transition-all duration-300">
+                    <a href="/" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Home</a>
+                    <a href="/#events" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">Events</a>
+                    <a href="/#about" class="font-montserrat font-medium text-gray-600 hover:text-black transition-all border-b border-black">About</a>
+                    
+                    <div class="flex flex-col justify-center items-center gap-1 cursor-pointer md:hidden z-50 absolute right-12 top-12 closebtn w-4 h-4">
+                        <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-45"></div>
+                        <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
+                    </div>
+                </div>
+
+
+            </nav>
+        <!-- MAIN -->
+        <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+            <div class="mt-20 lg:max-w-[50%]">
+                <p class="font-montserrat tracking-[6px]">Smartathon'24</p>
+                <p class="text-5xl lg:text-6xl font-brunoace">Project Presentation</p>
+                <p class="text-sm lg:text-xl tracking-[12px] font-montserrat">26th, October, 2024</p>
+
+                <p class="font-montserrat mt-4 ">
+                    Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
+                </p>
+                <div class="flex w-full flex-wrap gap-3 mt-3">
+                <a href="#register" class="w-full">
+                    <button class="bg-[#F99090] hover:bg-[#d47272] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">
+                        <img src="{% static 'images/view.svg' %}" class="invert">
+                        Register
+                    </button>
+                </a>
+                <a href="/ideapitchingtemplate" class="w-full">
+                    <button class="border-[1.5px] border-[#F99090] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#F99090] transition-colors flex gap-2 justify-center items-center">
+                        <img src="{% static 'images/download.svg' %}" class="invert">
+                        Download presentation template
+                    </button>
+                </a>
+                </div>
+            </div>
+
+            <div class="flex items-center max-w-[100%] justify-center lg:mt-32">
+                <img src="{% static 'images/projectpresent.png' %}" class="max-w-[70%]">
+            </div>
+            
+            <!-- <img src="{% static 'images/hackjb.svg' %}" class="absolute right-0 top-0 -z-10 max-w-[70%] lg:max-w-[100%] lg:block hidden "> -->
+        </section>
+
+        <!-- Register -->
+         <section class="w-full p-6 lg:p-12 flex flex-col"  id="register">
+            <p class="text-3xl underline font-bold font-montserrat">Register</p>
+            {% for message in messages %}
+            <p class="font-xl text-red-600 font-montserrat font-medium">{{message}}</p>
+            {% endfor %}
+            <div class="flex gap-4 mt-4 flex-wrap lg:flex-nowrap">
+                {% if not event.isClosed %}
+                <form class="max-h-[450px] overflow-y-scroll gis lg:w-[50%] border border-black rounded-md p-6" method="POST">
+                    {% csrf_token %}
+                    <label for="teamname" class="font-montserrat text-sm">Team Name</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="teamname" name="teamname">
+
+                    <label for="m1n" class="font-montserrat text-sm mt-4">Member 1 Name</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m1n" name="m1n">
+
+                    <label for="mlr" class="font-montserrat text-sm mt-4">Member 1 Roll</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m1r" name="m1r">
+
+                    <label for="m2n" class="font-montserrat text-sm mt-4">Member 2 Name</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m2n" name="m2n">
+
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 2 Roll</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m2r" name="m2r">
+
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m3n" name="m3n">
+
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll</label>
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m3r" name="m3r">
+
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Contact No</label>
+                    <input type="number" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2r" name="contact">
+
+                    <button class="bg-[#F99090] hover:bg-[#c37272] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center mt-4">
+                        Submit
+                        <img src="{% static 'images/rightarrow.svg' %}" >
+                    </button>
+                </form>
+                {% else %}
+                <div class="lg:w-[50%] border border-black rounded-md p-6 max-h-[450px] overflow-y-scroll gis">
+                    <div class="flex justify-center flex-col items-center">
+                        <img src="{% static 'images/closed.svg' %}" class="w-[250px]">
+                        <p class="text-2xl font-bold font-montserrat">Registration Closed</p>
+                        <p class="font-montserrat font-light mt-3 text-sm text-center text-black">Registration for this event has been closed, although you can still checkout our other events.</p>
+        
+                    </div>
+                </div>
+                {% endif %}
+                <div class="lg:w-[50%] border border-black rounded-md px-9 py-6 overflow-y-scroll max-h-[450px] gis">
+                    <p class="text-xl font-montserrat font-bold">General Instructions</p>
+
+                    <ul class="font-montserrat text-gray-700 mt-2">
+                        <li class="list-disc mt-4">Event is planned in distinctive manner for both hardware and software with seprate time slots</li>
+                        <li class="list-disc mt-4">Two different Prize categories for hardware and software, with a total prize pool worth<b> ₹15,000</b></li>
+                        <li class="list-disc mt-4">Ideas should be submitted using the provided template, available on our website.</li>
+                        <li class="list-disc mt-4">Submissions are limited to a maximum of 200 entries.</li>
+                        <li class="list-disc mt-4">Preliminary round: Presentations will be evaluated based on creativity, technical feasibility, and the overall approach.</li>
+                        <li class="list-disc mt-4">The top 30 teams will be shortlisted for the 7 - hour endurance hackathon (finals).</li>
+                        <li class="list-disc mt-4">During the endurance round, participants must utilize only college lab systems; personal laptops are prohibited.</li>
+                        <li class="list-disc mt-4">Teams will be evaluated based on the originality of their work, as well as feasibility and scalability factors.</li>
+                       </ul>
+                </div>
+            </div>
+         </section>
+
+        <!-- About -->
+         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+            <div class="flex flex-col gap-6">
+                
+                <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
+
+                    <div class="lg:w-[50%]">
+                        <img src="{% static 'images/hab.svg' %}" alt="" class="min-w-[200px]">
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <p class="text-2xl font-bold font-montserrat">Step into the spotlight with our exciting Project Presentation event! </p>
+                        <p class="font-montserrat text-gray-600 font-normal">
+                            This is your chance to bring your creative ideas to life. The event is divided into <b>two different categories Hardware and Software projects</b>, with attractive cash prizes for each. Whether you’re building a functional prototype or developing innovative code, now’s your opportunity to shine! Each team will present their projects in a 7-slide PPT format, showcasing their creativity and implementation skills. Top teams will be evaluated on their presentation, and stand a chance to win accolades for their groundbreaking solutions! Ready to make an impact? Register your team of three now and take the stage with your visionary project!
+                        </p>
+
+                        <div class="flex w-full flex-wrap lg:flex-nowrap gap-3 mt-3">
+                            <a href="#register" class="w-full">
+                                <button class="bg-[#F99090] hover:bg-[#d47373] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">
+                                    <img src="{% static 'images/view.svg' %}" class="invert">
+                                    Register
+                                </button>
+                            </a>
+                            <a href="/ideapitchingtemplate" class="w-full">
+                                <button class="border-[1.5px] border-[#F99090] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#af6464] transition-colors flex gap-2 justify-center items-center">
+                                    <img src="{% static 'images/download.svg' %}" class="invert">
+                                    Download presentation template
+                                </button>
+                            </a>
+                            </div>
+                        
+                    </div>
+                </div>  
+
+                <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
+                    <div class="lg:w-[50%]">
+                        <img src="{% static 'images/prize.svg' %}" alt="" class="min-w-[200px]">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <p class="text-2xl font-bold font-montserrat">Winning Exciting Cash Prizes</p>
+                        <p class="font-montserrat text-gray-600">
+                            Participate in our Project Presentation Challenge and stand a chance to win exciting cash prizes! Present your innovative hardware or software solutions, and showcase your creativity to a panel of experts. The top teams will be rewarded for their outstanding efforts and brilliant ideas!
+                        </p>
+                        <p class="font-montserrat font-semibold">1st Prize - ₹3000 | 2nd Prize - ₹2500 | 3rd Prize - ₹2000</p>
+                    </div>
+                </div>  
+            </div>
+         </section>
+        <!-- Footer -->
+        <section class="w-full bg-[#FDF9DF] p-6 lg:p-12">
+            <div class="flex flex-col justify-center items-center mt-12">
+                <div class="flex items-center justify-center flex-col">
+                    <p class="">Organizing commitee</p>
+                    <img src="{% static 'images/srclogo.svg' %}" class="w-[200px] h-[200px] mt-6">
+                    <p class="font-semibold text-xl">Student Research Council</p>
+                    <p class="font-light tracking-widest">To Research, To Innovate</p>
+                </div>
+                <div class="flex gap-4 mt-6 flex-wrap lg:flex-nowrap justify-center">
+                    <a href="https://www.linkedin.com/in/student-research-council-drmcet-3a4b42323/" class="flex gap-2">
+                        <img src="{% static 'images/linkedin.svg' %}" class="w-[20px] opacity-60">
+                        LinkedIn
+                    </a>
+                    <a href="mail:srcofficials@drmcet.ac.in" class="flex">
+                        <img src="{% static 'images/mail.svg' %}" class="w-[20px]">
+                        srcofficials@drmcet.ac.in
+                    </a>
+                    <a href="https://www.instagram.com/src.offl?igsh=ZThwa3VrbHlxbWFl" class="flex" target="_blank">
+                        <img src="{% static 'images/instagram.svg' %}" class="w-[20px]">
+                        src.offl
+                    </a>
+                    <a href="" class="flex">
+                        <img src="{% static 'images/location.svg' %}" class="w-[20px]">
+                        116 A-Block, MCET
+                    </a>
+                    <a href="https://chat.whatsapp.com/CEOFPw1h0w5EK4ELWGbANd" class="flex gap-2">
+                        <img src="{% static 'images/whatsapp.svg' %}" class="w-[20px] opacity-60">
+                        Join our community
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <script>    
+            const togglebtn = document.querySelector('.togglebtn')
+            const closebtn = document.querySelector('.closebtn')
+            const mobmenu = document.querySelector('.mobmenu')
+            togglebtn.addEventListener('click', ()=>{
+                mobmenu.classList.toggle('active')
+            })
+            closebtn.addEventListener('click', ()=>{
+                mobmenu.classList.toggle('active')
+            })
+    </script>
+</body>
+</html>

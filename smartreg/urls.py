@@ -25,5 +25,12 @@ urlpatterns = [
     path('', cv.home),
     path('hackathon/', cv.hackathon),
     path('problemstatements/', cv.problemstatements),
-    path('downloadhackathontemplate/', cv.download_hackathon)
+    path('downloadhackathontemplate/', cv.download_hackathon),
+    path('ideapitchingtemplate/', cv.ideapitching_template),
+    
+    path('ideapitching/', cv.ideapitching),
+    path('projectpresentation/', cv.projectpresentation),
+    
+    path('success/<int:event>/<int:regid>/', cv.success, name="success"),
+    path('failed/', cv.failed)
 ]

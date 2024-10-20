@@ -46,8 +46,14 @@
         <p class="font-brunoace text-4xl text-left mr-auto mt-4 underline">Hackathon</p>
     </div>
         <div class="flex justify-between items-center w-full mt-4">
-            <div class="">
+            <div class="flex justify-between gap-x-4 flex-wrap items-baseline w-full">
                 <p class="text-2xl font-montserrat font-bold text-center lg:text-left">Problem Statements</p>
+                <a href="/downloadhackathontemplate" class="flex items-center">
+                    <button class="bg-[#81b3ef] flex justify-center text-center gap-4 w-full lg:w-auto  py-3 px-8 rounded-md text-sm font-montserrat mt-4 font-medium hover:bg-[#6897d1] transition-colors">
+                        <img src="{% static 'images/download.svg' %}" class="invert">
+                        Download PPT Template
+                    </button>
+                </a>
             </div>
             <!-- <input type="text" class="border outline-none rounded-3xl w-full lg:w-[500px] bg-transparent mt-6 font-montserrat pl-6 focus:border-none psidsearch" placeholder="Search with Problem ID"> -->
         </div>
@@ -55,15 +61,15 @@
                 {% for statement in statements %}
                     <div class="w-full bg-[#F6F0E5] p-6 flex flex-col gap-1 rounded-md font-montserrat border shadow-sm cursor-pointer">
                         <div>
-                            <p class="text-xs opacity-65">Problem Statement ID: {{statement.id}}</p>
+                            <p class="text-sm font-medium underline">Problem Statement ID: {{statement.id}}</p>
                         </div>
                         <div class="mt-2">
                             <p class="text-xl">{{statement.title}}</p>
                         </div>
                         <div class="flex gap-2 font-medium items-center">
-                            <p class="text-xs opacity-65">Difficulty Level: {{statement.difficulty}}</p>
+                            <p class="text-sm opacity-65">Difficulty Level: {{statement.difficulty}}</p>
                             <span class="opacity-65">|</span>
-                            <p class="text-xs opacity-65">Maximum {{statement.submissions}} submission</p>
+                            <p class="text-sm opacity-65">Submissions: {{statement.submitted}} out of {{statement.submissions}}</p>
                         </div>
                         <div>
                                 <button class="border border-black py-2 px-6 rounded-md text-sm read-btn hover:bg-black hover:text-white transition-colors" data-psid="{{statement.id}}">
