@@ -55,6 +55,7 @@
                 <p class="font-montserrat mt-4 ">
                     Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
                 </p>
+                <p class="font-montserrat mt-4 font-semibold">{{event.venue}} | {{event.time}} | {% if not event.isClosed %} Registrations open {%else%} Registrations Closed {% endif %}</p>
                 <div class="flex w-full flex-wrap gap-3 mt-3">
                 <a href="#register" class="w-full">
                     <button class="bg-[#F99090] hover:bg-[#d47272] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">

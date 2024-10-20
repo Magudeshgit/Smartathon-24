@@ -53,6 +53,7 @@
                 <p class="font-montserrat mt-4 ">
                     Immerse yourself in a 7+ hour software Hackathon where innovation meets competition. Collaborate with like-minded peers, tackle real-world challenges, and develop cutting-edge solutions.
                 </p>
+                <p class="font-montserrat mt-4 font-semibold">{{event.venue}} | {{event.time}} | {% if not event.isClosed %} Registrations open {%else%} Registrations Closed {% endif %}</p>
                 <div class="flex w-full flex-wrap gap-3 mt-3">
                 <a href="/problemstatements" class="w-full">
                     <button class="bg-[#70A2E1] hover:bg-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">
@@ -86,6 +87,7 @@
             <p class="font-xl text-red-600 font-montserrat font-medium">{{message}}</p>
             {% endfor %}
             <div class="flex gap-4 mt-4 flex-wrap lg:flex-nowrap">
+                {% if not event.isClosed %}
                 <form class="lg:w-[50%] border border-black rounded-md p-6 max-h-[450px] overflow-scroll gis flex flex-col gap-3" method="POST">
                     {% csrf_token %}
                     <div>
@@ -150,6 +152,16 @@
                         <img src="{% static 'images/rightarrow.svg' %}" >
                     </button>
                 </form>
+                {% else %}
+                <div class="lg:w-[50%] border border-black rounded-md p-6 max-h-[450px] overflow-y-scroll gis">
+                    <div class="flex justify-center flex-col items-center">
+                        <img src="{% static 'images/closed.svg' %}" class="w-[250px]">
+                        <p class="text-2xl font-bold font-montserrat">Registration Closed</p>
+                        <p class="font-montserrat font-light mt-3 text-sm text-center text-black">Registration for this event has been closed, although you can still checkout our other events.</p>
+        
+                    </div>
+                </div>
+                {% endif %}
                 <div class="lg:w-[50%] border border-black rounded-md px-9 py-6 overflow-y-scroll
                 
                 
