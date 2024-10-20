@@ -55,22 +55,18 @@
                 </p>
                 <p class="font-montserrat mt-4 font-semibold">{{event.venue}} | {{event.time}} | {% if not event.isClosed %} Registrations open {%else%} Registrations Closed {% endif %}</p>
                 <div class="flex w-full flex-wrap gap-3 mt-3">
-                <a href="/problemstatements" class="w-full">
+                <a href="#register" class="w-full">
                     <button class="bg-[#70A2E1] hover:bg-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium transition-colors flex gap-2 justify-center items-center">
-                        <img src="{% static 'images/view.svg' %}" class="invert">
-                        View Problem Statements
+                        <img src="{% static 'images/rocket.svg' %}" class="invert">
+                        Register
                     </button>
                 </a>
-                <a href="/downloadhackathontemplate" class="w-full">
+                <a href="/problemstatements" class="w-full">
                     <button class="border-[1.5px] border-[#70A2E1] min-w-full py-3 px-8 rounded-md text-sm font-montserrat font-medium hover:bg-[#70A2E1] transition-colors flex gap-2 justify-center items-center">
-                        <img src="{% static 'images/download.svg' %}" class="invert">
-                        Download template
+                        <img src="{% static 'images/view.svg' %}" class="invert">
+                        View Problem Statement
                     </button>
                 </a>
-                </div>
-                <div class="flex gap-2 mt-4 text-center lg:text-left w-full">
-                <img src="{% static 'images/calendar.svg' %}" alt="" class="mt-4">
-                <p class="font-montserrat mt-4">Registration open's on 22nd, October 2024</p>
                 </div>
             </div>
 
@@ -108,7 +104,7 @@
                     </div>                            
 
                     <div>
-                    <label for="mlr" class="font-montserrat text-sm mt-4">Member 1 Roll No*</label>
+                    <label for="mlr" class="font-montserrat text-sm mt-4">Member 1 Roll No (eg: 727623bad100)*</label>
                     <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m1r" name="m1r">
                     </div>
 
@@ -118,7 +114,7 @@
                     </div>
 
                     <div>
-                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 2 Roll No*</label>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 2 Roll No (eg: 727623bad100)*</label>
                     <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2r" name="m2r">
                     </div>
 
@@ -128,7 +124,7 @@
                     </div>
 
                     <div>
-                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll No*</label>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll No (eg: 727623bad100)*</label>
                     <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m3r" name="m3r">
                     </div>
 
@@ -138,7 +134,7 @@
                     </div>
 
                     <div>
-                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 4 Roll No*</label>
+                    <label for="m2r" class="font-montserrat text-sm mt-4">Member 4 Roll No (eg: 727623bad100)*</label>
                     <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m4r" name="m4r">
                     </div>
 
@@ -215,26 +211,6 @@
                             </a>
                         </div>
                         
-                    </div>
-                </div>  
-
-                <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
-                    <div class="lg:w-[50%]">
-                        <img src="{% static 'images/gis.svg' %}" alt="" class="min-w-[200px]">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <p class="text-2xl font-bold font-montserrat">General Instruction</p>
-                        <p class="font-montserrat text-gray-600">
-                           <ul class="font-montserrat">
-                            <li class="list-disc ">Participants shall choose one of the released <a href="/problemstatements" class="underline">problem statements</a> and start preparing</li>
-                            <li class="list-disc mt-4">Participants can form teams consisting of 4 members, Each team must be registered throught the portal before registration closes.</li>
-                            <li class="list-disc mt-4">Preliminary round: Teams must submit and present their solutions via the provided template only. Any layout modification to template is strictly prohibited.</li>
-                            <li class="list-disc mt-4">Preliminary round: Presentations will be evaluated based on creativity, technical feasibility, and the overall approach.</li>
-                            <li class="list-disc mt-4">The top 30 teams will be shortlisted for the 7 - hour endurance hackathon (finals).</li>
-                            <li class="list-disc mt-4">During the endurance round, participants must utilize only college lab systems; personal laptops are prohibited.</li>
-                            <li class="list-disc mt-4">Teams will be evaluated based on the originality of their work, as well as feasibility and scalability factors.</li>
-                           </ul>
-                        </p>
                     </div>
                 </div>  
 
