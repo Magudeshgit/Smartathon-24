@@ -6,7 +6,7 @@ from .models import statements, events, registrations, hackathonreg
 import os
 from django.core import serializers
 from pathlib import Path
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.contrib.messages import error
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,9 +20,9 @@ def hackathon(request):
     event = events.objects.get(name = "Hackathon")
     raw_ps = serializers.serialize('json', ps)
     if request.method == 'POST':
-        statement = statements.objects.get(title = request.POST.get('ps'))
-        if hackathonreg.objects.filter(statement=statement).count()<statement.submissions:
-            try:
+        try:
+            statement = statements.objects.get(title = request.POST.get('ps'))
+            if hackathonreg.objects.filter(statement=statement).count()<statement.submissions:
                 registration = hackathonreg.objects.create(
                     event = event,
                     statement = statement,
@@ -44,14 +44,18 @@ def hackathon(request):
                 statement.submitted += 1
                 statement.save()
                 return redirect(reverse('success', kwargs={"event": event.id, "regid": registration.id}))
-            except ValidationError:
-                print("error Catched")
-                error(request, "One or more of the provided roll numbers has already been registered.")
-                return redirect('/hackathon/#register')
+        except ValidationError:
+            print("error Catched")
+            error(request, "One or more of the provided roll numbers has already been registered.")
+            return redirect('/hackathon/#register')
+        except ObjectDoesNotExist:
+            print("error Catched")
+            error(request, "Please select the dropdown after entering Problem Statement ID to proceed")
+            return redirect('/hackathon/#register')
         else:
             error(request, "Maximum registrations reached for the selected problem "+f"'{request.POST.get('ps')}', please choose a different one.")
             return redirect('/hackathon/#register')
-            
+                
     return render(request, "core/hackathon.html", {"statements": ps, "rawps":raw_ps, "event": event})
 
 def problemstatements(request):
