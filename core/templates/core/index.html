@@ -9,17 +9,13 @@
     <link rel="shortcut icon" href="{% static 'images/favi.ico' %}" type="image/x-icon">
     {% tailwind_css %}
 </head> 
-<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden">
-            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6  z-[100]">
+<body class="bg-[#FFFCEA] max-w-[1440px] ml-auto mr-auto overflow-x-hidden relative">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-[100%] p-6 z-[100]">
                 <a class="flex gap-2" href="/">
                     <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="max-w-[100px]">
                     <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
                 </a>
-                <!-- <div class="flex items-center gap-2">
-                    <img src="{% static 'images/srclogo.svg' %}" alt="logo" class="">
-                    <p class="font-semibold font-montserrat text-lg">Student Research Council</p>
-                    
-                </div> -->
+               
                 <div class="gap-12 items-center hidden md:flex">
                     <a href="/" class="font-montserrat text-gray-700 hover:text-black transition-all">Home</a>
                     <a href="#events" class="font-montserrat text-gray-700 hover:text-black transition-all">Events</a>
@@ -48,7 +44,7 @@
 
             </nav>
         <!-- MAIN -->
-        <section class="overflow-hidden flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-12 lg:gap-12">
+        <section class="overflow-hidden flex justify-center lg:justify-between relative  items-center flex-wrap p-6">
             <div class=" lg:max-w-[50%] mt-24">
                 <img src="{% static 'images/smartathonlogo.svg' %}" class="max-w-[300px] lg:max-w-[410px] ml-auto mr-auto lg:ml-0 lg:mr-auto ">
                 <p class="font-montserrat mt-4 ">

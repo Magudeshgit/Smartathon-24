@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
     {% tailwind_css %}
 </head>
-<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
-            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto relative">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-full p-6 lg:p-12 z-[100]">
                 <a class="flex gap-2" href="/">
                     <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="max-w-[100px]">
                     <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
@@ -46,7 +46,7 @@
 
             </nav>
         <!-- MAIN -->
-        <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+        <section class="flex justify-center lg:justify-between relative items-center flex-wrap w-full p-6 lg:p-12 gap-6 lg:gap-12">
             <div class="mt-20 lg:max-w-[50%]">
                 <p class="font-montserrat tracking-[6px]">Smartathon'24</p>
                 <p class="text-5xl lg:text-6xl font-brunoace">Project Presentation</p>
@@ -90,25 +90,25 @@
                 <form class="max-h-[450px] overflow-y-scroll gis lg:w-[50%] border border-black rounded-md p-6" method="POST">
                     {% csrf_token %}
                     <label for="teamname" class="font-montserrat text-sm">Team Name</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="teamname" name="teamname">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="teamname" name="teamname">
 
                     <label for="m1n" class="font-montserrat text-sm mt-4">Member 1 Name</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m1n" name="m1n">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m1n" name="m1n">
 
                     <label for="mlr" class="font-montserrat text-sm mt-4">Member 1 Roll No (eg: 727623bad100)</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m1r" name="m1r">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m1r" name="m1r">
 
                     <label for="m2n" class="font-montserrat text-sm mt-4">Member 2 Name</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m2n" name="m2n">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2n" name="m2n">
 
                     <label for="m2r" class="font-montserrat text-sm mt-4">Member 2 Roll No (eg: 727623bad100)</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m2r" name="m2r">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2r" name="m2r">
 
                     <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Name</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m3n" name="m3n">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m3n" name="m3n">
 
                     <label for="m2r" class="font-montserrat text-sm mt-4">Member 3 Roll No (eg: 727623bad100)</label>
-                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" id="m3r" name="m3r">
+                    <input type="text" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m3r" name="m3r">
 
                     <label for="m2r" class="font-montserrat text-sm mt-4">Contact No</label>
                     <input type="number" class="outline-none w-full bg-transparent border border-black rounded-md" required id="m2r" name="contact">
@@ -146,7 +146,7 @@
          </section>
 
         <!-- About -->
-         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-full p-6 lg:p-12 gap-6 lg:gap-12">
             <div class="flex flex-col gap-6">
                 
                 <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/globalstyles.css' %}">
     {% tailwind_css %}
 </head>
-<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto">
-            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-screen p-6 lg:p-12 z-[100]">
+<body class="bg-[#FFFCEA] max-w-[1440px] overflow-x-hidden ml-auto mr-auto relative">
+            <nav class="flex justify-between font-montserrat absolute top-0 left-0 w-[100%] p-6 lg:p-12 z-[100]">
                 <a class="flex gap-2" href="/">
                     <img src="{% static 'images/mcetlogo.png' %}" alt="logo" class="max-w-[100px]">
                     <p class="font-bold font-montserrat text-xs lg:text-lg">Dr.Mahalingam College<br> of Engineering and Technology</p>
@@ -38,11 +38,9 @@
                         <div class="w-8 h-[2px] bg-gray-400 rounded-md absolute rotate-[-45deg]"></div>
                     </div>
                 </div>
-
-
             </nav>
         <!-- MAIN -->
-        <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+        <section class="flex justify-center lg:justify-between relative items-center flex-wrap w-[100%] p-6">
 
 
             <div class="mt-20 lg:max-w-[50%]">
@@ -174,12 +172,12 @@
                         <li class="list-disc mt-4">During the endurance round, participants must utilize only college lab systems; personal laptops are prohibited.</li>
                         <li class="list-disc mt-4">Teams will be evaluated based on the originality of their work, as well as feasibility and scalability factors.</li>
                        </ul>
-                </div>
+                    </div>
             </div>
          </section>
 
         <!-- About -->
-         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-screen p-6 lg:p-12 gap-6 lg:gap-12">
+         <section class="flex justify-center lg:justify-between relative  items-center flex-wrap w-full p-6 lg:p-12 gap-6 lg:gap-12">
             <div class="flex flex-col gap-6">
                 
                 <div class="bg-[#FFF9D8] p-6 shadow-sm gap-6 items-center justify-center rounded-md flex lg:flex-nowrap flex-wrap">
